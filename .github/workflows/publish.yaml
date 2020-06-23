@@ -21,4 +21,5 @@ jobs:
           name: gmadhok/porter-pipeline
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+          dockerfile:  ../../../Dockerfile.tmpl
           registry: docker.pkg.github.com/gmadhok/porter-pipeline
