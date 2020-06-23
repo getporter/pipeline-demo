@@ -2,7 +2,7 @@
 set -euo pipefail
 
 install() {
-  echo Hello World
+  echo Hello World!!!
 }
 
 upgrade() {
