@@ -30,3 +30,15 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+        
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Porter
+      uses: deislabs/porter-gh-action@master
+    - name: Porter install
+      run: porter install
+    - name: Porter uninstall
+      run: porter uninstall
