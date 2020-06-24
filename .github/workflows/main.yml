@@ -30,7 +30,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        
+ # make sure bundle can be installed and uninstalled successfully     
   run:
     runs-on: ubuntu-latest
 
