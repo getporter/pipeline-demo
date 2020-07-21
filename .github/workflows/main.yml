@@ -40,5 +40,7 @@ jobs:
       uses: deislabs/porter-gh-action@master
     - name: Porter install
       run: porter install
+    - name: Porter upgrade
+      run: porter upgrade
     - name: Porter uninstall
       run: porter uninstall
