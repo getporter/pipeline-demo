@@ -21,15 +21,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Setup Porter
       uses: deislabs/porter-gh-action@v0.1.1
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
-
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+   
  # make sure bundle can be installed and uninstalled successfully     
   run:
     runs-on: ubuntu-latest
@@ -38,6 +30,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Setup Porter
       uses: deislabs/porter-gh-action@master
+    - name: Install Docker mixin
+      run: porter mixins install docker
     - name: Porter install
       run: porter install
     - name: Porter upgrade
