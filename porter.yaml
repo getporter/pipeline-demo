@@ -7,34 +7,61 @@ name: HELLO
 version: 0.1.0
 description: "An example Porter configuration"
 # TODO: update the registry to your own, e.g. myregistry/porter-hello:v0.1.0
-tag: getporter/porter-hello:v0.1.0
+tag: gmadhok/mixin-test:v1.0
 
 # Uncomment the line below to use a template Dockerfile for your invocation image
 #dockerfile: Dockerfile.tmpl
 
+credentials:
+  - name: DOCKER_USERNAME
+    env: DOCKER_USERNAME
+  - name: DOCKER_PASSWORD
+    env: DOCKER_PASSWORD
+
 mixins:
-  - exec
+  - docker
 
 install:
-  - exec:
-      description: "Install Hello World"
-      command: ./helpers.sh
-      arguments:
-        - install
+  - docker:
+      description: "Pull image"
+      pull:
+        name: carolynvs/whalesayd
+        tag: latest
+  - docker:
+      description: "Run image"
+      run:
+        image: carolynvs/whalesayd
+        detach: true
+        ports:
+          - host: 8081
+            container: 8081
+  - docker:
+      description: "Build image"
+      build:
+        tag: "gmadhok/mixin-test:v1.0"
+        file: Dockerfile-cookies
 
 upgrade:
-  - exec:
-      description: "World 2.0"
-      command: ./helpers.sh
-      arguments:
-        - upgrade
+  - docker:
+      description: "Login to docker"
+      login:
+  - docker:
+      description: "Push image"
+      push:
+        name: gmadhok/mixin-test
+        tag: v1.0
+  - docker:
+      description: "Upgrade image"
+      pull:
+        name: docker/whalesay
+        tag: latest
 
 uninstall:
-  - exec:
-      description: "Uninstall Hello World"
-      command: ./helpers.sh
-      arguments:
-        - uninstall
+  - docker:
+      description: "Uninstall container"
+      remove:
+        container: testmixin
+        force: true
 
 
 # See https://porter.sh/author-bundles/#dependencies
