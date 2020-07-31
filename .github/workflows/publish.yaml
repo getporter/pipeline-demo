@@ -22,5 +22,13 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Install Docker mixin
+      run: porter mixins install docker
+    - name: Porter install
+      run: porter install
+    - name: Porter upgrade
+      run: porter upgrade
+    - name: Porter uninstall
+      run: porter uninstall
     - name: Porter Publish
       run: porter publish
