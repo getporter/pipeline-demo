@@ -9,8 +9,8 @@ on:
     branches: [ master ]
 
 env: 
- DOCKER_USERNAME: "{{ secrets.DOCKER_USERNAME }}"
- DOCKER_PASSWORD: "{{ secrets.DOCKER_PASSWORD }}"
+ DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+ DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -32,6 +32,9 @@ jobs:
       run: porter install -c ./docker-example.json --allow-docker-host-access
     - name: Porter upgrade
       run: porter upgrade -c ./docker-example.json --allow-docker-host-access
+      env:
+       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - name: Porter uninstall
       run: porter uninstall -c ./docker-example.json --allow-docker-host-access
     - name: Porter Publish
