@@ -32,9 +32,6 @@ jobs:
       run: porter install -c ./docker-example.json --allow-docker-host-access
     - name: Porter upgrade
       run: porter upgrade -c ./docker-example.json --allow-docker-host-access
-      env:
-       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - name: Porter uninstall
       run: porter uninstall -c ./docker-example.json --allow-docker-host-access
     - name: Porter Publish
