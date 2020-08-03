@@ -30,6 +30,7 @@ install:
   - docker:
       description: "Run whalesayd image"
       run:
+        name: testmixin
         image: carolynvs/whalesayd
         detach: true
         ports:
