@@ -43,11 +43,6 @@ install:
 
 upgrade:
   - docker:
-      description: "Login to docker"
-      login:
-        username: gmadhok
-        password: password
-  - docker:
       description: "Push image"
       push:
         name: gmadhok/mixin-test
