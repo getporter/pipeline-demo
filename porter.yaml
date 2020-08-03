@@ -28,7 +28,7 @@ install:
         name: carolynvs/whalesayd
         tag: latest
   - docker:
-      description: "Run image"
+      description: "Run whalesayd image"
       run:
         image: carolynvs/whalesayd
         detach: true
