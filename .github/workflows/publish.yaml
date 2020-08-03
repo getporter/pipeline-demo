@@ -31,8 +31,8 @@ jobs:
     - name: Porter install
       run: porter install -c ./docker-example.json --allow-docker-host-access
     - name: Porter upgrade
-      run: porter upgrade
+      run: porter upgrade -c ./docker-example.json --allow-docker-host-access
     - name: Porter uninstall
-      run: porter uninstall
+      run: porter uninstall -c ./docker-example.json --allow-docker-host-access
     - name: Porter Publish
       run: porter publish
