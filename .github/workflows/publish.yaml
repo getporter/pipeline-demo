@@ -8,6 +8,10 @@ on:
   push:
     branches: [ master ]
 
+env: 
+ DOCKER_USERNAME: "{{ secrets.DOCKER_USERNAME }}"
+ DOCKER_PASSWORD: "{{ secrets.DOCKER_PASSWORD }}"
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   publish: 
@@ -24,8 +28,10 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Install Docker mixin
       run: porter mixins install docker
+    - name: Porter Credentials
+      run: porter credentials generate
     - name: Porter install
-      run: porter install
+      run: porter install -c HELLO
     - name: Porter upgrade
       run: porter upgrade
     - name: Porter uninstall
