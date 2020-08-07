@@ -20,7 +20,9 @@ jobs:
     steps: 
     - uses: actions/checkout@v1
     - name: Setup Porter
-      uses: deislabs/porter-gh-action@v0.27.2
+      uses: deislabs/porter-gh-action@v0.1.1
+      with:
+        porter_version: v0.27.2
     - name: Install Docker mixin
       run: porter mixins install docker
     - name: Porter install
