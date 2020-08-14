@@ -63,16 +63,3 @@ uninstall:
       remove:
         container: testmixin
         force: true
-
-
-# See https://porter.sh/author-bundles/#dependencies
-#dependencies:
-#  mysql:
-#    tag: getporter/mysql:v0.1.2
-#    parameters:
-#      database-name: wordpress
-
-# See https://porter.sh/wiring/#credentials
-#credentials:
-#  - name: kubeconfig
-#    path: /root/.kube/config
