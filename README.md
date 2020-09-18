@@ -1,6 +1,6 @@
 # Bundle with Workflow
 
-This is an example bundle that uses the [docker mixin](https://github.com/deislabs/porter-docker) along with a [GitHub workflow](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow) to demonstrate how
+This is an example bundle that uses the [docker mixin](https://github.com/getporter/docker-mixin) along with a [GitHub workflow](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow) to demonstrate how
 you can use a workflow with your bundle. You can fork and clone this repository and then make pull requests
 and merges to make the workflow run. For more details on how to use GitHub workflows with your Porter bundles, head to the [best practices page](https://porter.sh/best-practices/github-workflow/). 
 
